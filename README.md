@@ -1,7 +1,7 @@
 # audio
 An in-browser synthesizer
 
-## Install
+## Running
 ```
 $ yarn
 $ yarn start
