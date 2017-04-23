@@ -1,11 +1,5 @@
 const context = new AudioContext();
 
-const DEFAULT_CONFIG = {
-	delay: 0,
-	duration: 3,
-};
-
-
 function oscillator(freq = 440) {
 	const oscillator = context.createOscillator();
 	oscillator.frequency.value = freq;
