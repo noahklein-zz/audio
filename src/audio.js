@@ -33,20 +33,3 @@ export function playSong(chords = [], chordDuration = 1) {
 		playChord(chord, chordDuration * index, chordDuration)
 	);
 }
-
-const majorThird = root => root + 4;
-// const minorThird = root => root + 3;
-const fifth = root => root + 7;
-const fourth = root => root + 5;
-
-const triad = alts => root => [
-	root + alts[0],
-	majorThird(root) + alts[1],
-	fifth(root) + alts[2]
-];
-
-export const majorChord = triad([0, 0, 0]);
-export const minorChord = triad([0, -1, 0]);
-export const diminished = triad([0, -1, -1]);
-export const augmented = triad([0, 0, 1]);
-export const sus4 = root => [root, fourth(root), fifth(root)]
