@@ -87,13 +87,15 @@ const Button = styled.button`
 
 const play = compose(playSong, inputToChords);
 
-function splitLine(line) {
-	const isSharp = line.charAt(1) === '#';
-	const note = line.charAt(0) + (isSharp ? '#' : '');
-	const rest = line.slice(isSharp ? 2 : 1);
-	return [note, rest];
-}
+const noteMods = ['#'];
 
+function splitLine(line) {
+	const note = line.charAt(0);
+	const possibleMod = line.charAt(1);
+	return noteMods.includes(possibleMod)
+		? [note + possibleMod, line.slice(2)]
+		: [note, line.slice(1)];
+}
 const enhance = compose(
 	withState('text', 'setText', DEFAULT_TEXT),
 	withHandlers({
